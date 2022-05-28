@@ -41,7 +41,7 @@ struct ARViewContainer: UIViewRepresentable {
         let size: simd_float2 = [Float(numCells.x) * cellSize, Float(numCells.y) * cellSize]
         // Offset is used to make the origin in the center
         let offset: simd_float2 = [size.x / 2, size.y / 2]
-        var i = 0
+        var i: UInt32 = 0
         
         for row in 0..<numCells.y {
             for col in 0..<numCells.x {
@@ -59,14 +59,14 @@ struct ARViewContainer: UIViewRepresentable {
                 textureCoordinates.append([1.0, 1.0])
                 
                 // Triangle 1
-                triangleIndices.append(UInt32(i))
-                triangleIndices.append(UInt32(i + 2))
-                triangleIndices.append(UInt32(i + 1))
+                triangleIndices.append(i)
+                triangleIndices.append(i + 2)
+                triangleIndices.append(i + 1)
                 
                 // Triangle 2
-                triangleIndices.append(UInt32(i + 1))
-                triangleIndices.append(UInt32(i + 2))
-                triangleIndices.append(UInt32(i + 3))
+                triangleIndices.append(i + 1)
+                triangleIndices.append(i + 2)
+                triangleIndices.append(i + 3)
                 
                 i += 4
             }
